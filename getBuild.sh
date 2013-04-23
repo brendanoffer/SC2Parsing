@@ -39,7 +39,13 @@ do
     do
 	data+=",$building"
     done
-
-    echo "$data" >> data.txt
+	
+	## Header has 8 commas
+	## Each player has 10 commas
+	## Overall 28 commas per line
+	if test `echo $data | tr -cd , | wc -c` -eq 28
+	then
+		echo "$data" >> data.txt
+	fi	
     
 done
